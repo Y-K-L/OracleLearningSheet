@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>甲骨文学习卡片</title>
+<style>
+  @page { size: A4 portrait; margin: 0; }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: #fff;
+    color: #333;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                 "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    padding: 10mm;
+    background: #fff;
+    page-break-after: always;
+  }
+
+  .sheet:last-of-type { page-break-after: auto; }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    padding: 7mm;
+    border: 0.5mm solid #b9afa0;
+    border-radius: 4mm;
+    background: #fffdf8;
+    display: flex;
+    flex-direction: column;
+    gap: 3mm;
+    overflow: hidden;
+  }
+
+  /* ── 顶部：日期 / 分期 ── */
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2mm;
+    font-size: 9.5pt;
+    color: #555;
+    border-bottom: 0.3mm dashed #ddd5c8;
+    padding-bottom: 2.5mm;
+  }
+
+  .date-line {
+    display: inline-block;
+    width: 32mm;
+    height: 4mm;
+    border-bottom: 0.3mm solid #c5bdb0;
+    vertical-align: bottom;
+  }
+
+  .opt {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 3mm;
+    white-space: nowrap;
+  }
+
+  .chk {
+    display: inline-block;
+    width: 3mm;
+    height: 3mm;
+    border: 0.3mm solid #8a8175;
+    border-radius: 0.5mm;
+    margin-right: 1.2mm;
+    flex: none;
+  }
+
+  /* ── 字 / 读音 ── */
+  .char-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 2mm;
+    font-size: 10pt;
+    color: #555;
+  }
+
+  .char-label,
+  .read-label {
+    flex: none;
+    padding-bottom: 1.5mm;
+  }
+
+  .char-slot {
+    flex: 1.2;
+    height: 16mm;
+    border-bottom: 0.3mm solid #c5bdb0;
+  }
+
+  .read-label { margin-left: 3mm; }
+
+  .read-slot {
+    flex: 1;
+    height: 16mm;
+    border-bottom: 0.3mm solid #c5bdb0;
+  }
+
+  /* ── 通用字段 ── */
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+  }
+
+  .label {
+    font-size: 8pt;
+    color: #8a8175;
+    letter-spacing: 0.5pt;
+  }
+
+  .wline {
+    height: 7.5mm;
+    border-bottom: 0.3mm solid #ddd5c8;
+  }
+
+  /* ── 摹写区 ── */
+  .box {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    border: 0.35mm solid #cfc7b9;
+    border-radius: 3mm;
+    overflow: hidden;
+  }
+
+  .box-label {
+    flex: none;
+    font-size: 8pt;
+    color: #8a8175;
+    letter-spacing: 0.5pt;
+    padding: 1.5mm 2.5mm;
+    border-bottom: 0.25mm dashed #ddd5c8;
+    background: #fbf8f1;
+  }
+
+  .box-body {
+    flex: 1;
+    min-height: 0;
+    background-image:
+      repeating-linear-gradient(0deg, #f1ece2 0 0.15mm, transparent 0.15mm 8mm),
+      repeating-linear-gradient(90deg, #f1ece2 0 0.15mm, transparent 0.15mm 8mm);
+  }
+
+  /* ── 同字异构 ── */
+  .variants {
+    display: flex;
+    align-items: center;
+    gap: 3mm;
+    font-size: 9pt;
+    color: #555;
+  }
+
+  .variants .label { flex: none; }
+
+  .vbox {
+    flex: 1;
+    height: 13mm;
+    border: 0.3mm solid #cfc7b9;
+    border-radius: 2mm;
+    padding: 1mm 2mm;
+    font-size: 8pt;
+    color: #b0a696;
+    background: #fffefb;
+  }
+
+  /* ── 篆刻备注 ── */
+  .seal {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+    border-top: 0.35mm solid #e3dbcf;
+    padding-top: 2.5mm;
+  }
+
+  .seal-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 9pt;
+    color: #555;
+    gap: 1mm;
+    margin-bottom: 1mm;
+  }
+
+  .seal-row .opt { margin-left: 3.5mm; }
+  .seal-row .opt:first-of-type { margin-left: 1mm; }
+
+  .seal .label { margin-top: 1mm; }
+</style>
+</head>
+<body>
+
+<!-- 一页一张卡。复制整个 <section> 可增加页数。 -->
+<section class="sheet">
+  <div class="card">
+
+    <!-- 日期 / 分期 -->
+    <div class="top">
+      <div>日期：<span class="date-line"></span></div>
+      <div>
+        分期：
+        <span class="opt"><span class="chk"></span>一期宾组</span>
+        <span class="opt"><span class="chk"></span>二期</span>
+        <span class="opt"><span class="chk"></span>三期</span>
+        <span class="opt"><span class="chk"></span>四期</span>
+        <span class="opt"><span class="chk"></span>五期</span>
+      </div>
+    </div>
+
+    <!-- 字 / 读音 -->
+    <div class="char-row">
+      <div class="char-label">字：</div>
+      <div class="char-slot"></div>
+      <div class="read-label">读音：</div>
+      <div class="read-slot"></div>
+    </div>
+
+    <!-- 本义 -->
+    <div class="section">
+      <div class="label">本义</div>
+      <div class="wline"></div>
+      <div class="wline"></div>
+    </div>
+
+    <!-- 卜辞例句 -->
+    <div class="section">
+      <div class="label">卜辞例句</div>
+      <div class="wline"></div>
+      <div class="wline"></div>
+    </div>
+
+    <!-- 原拓双钩摹写区 -->
+    <div class="box">
+      <div class="box-label">原拓双钩摹写区</div>
+      <div class="box-body"></div>
+    </div>
+
+    <!-- 独立对临区 -->
+    <div class="box">
+      <div class="box-label">独立对临区</div>
+      <div class="box-body"></div>
+    </div>
+
+    <!-- 同字异构记录 -->
+    <div class="variants">
+      <div class="label">同字异构记录</div>
+      <div class="vbox">①</div>
+      <div class="vbox">②</div>
+      <div class="vbox">③</div>
+    </div>
+
+    <!-- 篆刻备注 -->
+    <div class="seal">
+      <div class="seal-row">
+        <span>适合入印：</span>
+        <span class="opt"><span class="chk"></span>极佳</span>
+        <span class="opt"><span class="chk"></span>可用</span>
+        <span class="opt"><span class="chk"></span>慎用</span>
+        <span class="opt"><span class="chk"></span>不可单用</span>
+      </div>
+      <div class="label">易错提醒</div>
+      <div class="wline"></div>
+      <div class="wline"></div>
+      <div class="label">入印取舍思路</div>
+      <div class="wline"></div>
+      <div class="wline"></div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
