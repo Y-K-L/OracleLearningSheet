@@ -129,9 +129,18 @@
     border-bottom: 0.3mm solid #ddd5c8;
   }
 
-  /* ── 摹写 / 对临大框（无网格）── */
+  /* ── 两个竖版框并排横放（无网格）── */
+  .boxes-row {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 4mm;
+  }
+
   .box {
     flex: 1;
+    min-width: 0;
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -253,16 +262,19 @@
       <div class="wline"></div>
     </div>
 
-    <!-- 原拓双钩摹写区（无网格）-->
-    <div class="box">
-      <div class="box-label">原拓双钩摹写区</div>
-      <div class="box-body"></div>
-    </div>
+    <!-- 两个竖版框并排横放（无网格）-->
+    <div class="boxes-row">
 
-    <!-- 独立对临区（无网格）-->
-    <div class="box">
-      <div class="box-label">独立对临区</div>
-      <div class="box-body"></div>
+      <div class="box">
+        <div class="box-label">原拓双钩摹写区</div>
+        <div class="box-body"></div>
+      </div>
+
+      <div class="box">
+        <div class="box-label">独立对临区</div>
+        <div class="box-body"></div>
+      </div>
+
     </div>
 
     <!-- 同字异构记录 -->
