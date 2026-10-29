@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>甲骨文学习卡片模板</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: #fff;
+    color: #3b3b3b;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+                 "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  }
+
+  .sheet {
+    width: 210mm;
+    height: 297mm;
+    padding: 12mm;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8mm;
+    page-break-after: always;
+    background: #fff;
+  }
+
+  .sheet:last-of-type {
+    page-break-after: auto;
+  }
+
+  .card {
+    border: 0.45mm solid #c9c2b6;
+    border-radius: 4mm;
+    background: #fffdf8;
+    padding: 4mm;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5mm;
+    overflow: hidden;
+    break-inside: avoid;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 0.3mm dashed #d8d0c2;
+    padding-bottom: 1.5mm;
+    min-height: 13mm;
+  }
+
+  .today {
+    font-size: 24pt;
+    font-weight: 600;
+    line-height: 1;
+    color: #3a3a3a;
+  }
+
+  .reading {
+    font-size: 7.5pt;
+    color: #8a8175;
+    margin-top: 1.5mm;
+  }
+
+  .meta {
+    font-size: 7pt;
+    color: #8a8175;
+    line-height: 1.8;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .glyph-box {
+    border: 0.4mm dashed #b9afa0;
+    border-radius: 3mm;
+    min-height: 30mm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b0a696;
+    font-size: 7pt;
+    text-align: center;
+    line-height: 1.6;
+    padding: 2mm;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5mm;
+    min-height: 0;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .label {
+    font-size: 6.5pt;
+    color: #9a9082;
+    letter-spacing: 0.3pt;
+    margin-bottom: 1mm;
+  }
+
+  .line {
+    height: 5.5mm;
+    border-bottom: 0.3mm solid #ddd5c8;
+  }
+
+  .example {
+    border-top: 0.3mm dashed #d8d0c2;
+    padding-top: 2mm;
+  }
+
+  .example .line {
+    height: 6mm;
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 6.5pt;
+    color: #9a9082;
+    border-top: 0.3mm solid #e3dbcf;
+    padding-top: 1.5mm;
+    gap: 2mm;
+  }
+
+  .check-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5mm;
+    white-space: nowrap;
+  }
+
+  .circle {
+    width: 3mm;
+    height: 3mm;
+    border: 0.3mm solid #b9afa0;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 一个 .sheet 是 1 页 4 张卡。复制整个 section 可增加页数。 -->
+<section class="sheet">
+
+  <!-- 卡片 1 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="today">今字</div>
+        <div class="reading">拼音 / 读音：____________</div>
+      </div>
+      <div class="meta">部首：________<br>六书：________</div>
+    </div>
+
+    <div class="main">
+      <div class="glyph-box">甲骨字形<br>（手写 / 贴图）</div>
+      <div class="right">
+        <div class="field">
+          <div class="label">构形 / 来源</div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="field">
+          <div class="label">本义 / 释义</div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="label">卜辞例句</div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="label" style="margin-top:1.5mm;">出处 / 编号</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="bottom">
+      <div class="check-group">复习：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+      <div class="check-group">掌握：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+    </div>
+  </div>
+
+  <!-- 卡片 2 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="today">今字</div>
+        <div class="reading">拼音 / 读音：____________</div>
+      </div>
+      <div class="meta">部首：________<br>六书：________</div>
+    </div>
+    <div class="main">
+      <div class="glyph-box">甲骨字形<br>（手写 / 贴图）</div>
+      <div class="right">
+        <div class="field"><div class="label">构形 / 来源</div><div class="line"></div><div class="line"></div></div>
+        <div class="field"><div class="label">本义 / 释义</div><div class="line"></div><div class="line"></div></div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="label">卜辞例句</div><div class="line"></div><div class="line"></div>
+      <div class="label" style="margin-top:1.5mm;">出处 / 编号</div><div class="line"></div>
+    </div>
+    <div class="bottom">
+      <div class="check-group">复习：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+      <div class="check-group">掌握：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+    </div>
+  </div>
+
+  <!-- 卡片 3 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="today">今字</div>
+        <div class="reading">拼音 / 读音：____________</div>
+      </div>
+      <div class="meta">部首：________<br>六书：________</div>
+    </div>
+    <div class="main">
+      <div class="glyph-box">甲骨字形<br>（手写 / 贴图）</div>
+      <div class="right">
+        <div class="field"><div class="label">构形 / 来源</div><div class="line"></div><div class="line"></div></div>
+        <div class="field"><div class="label">本义 / 释义</div><div class="line"></div><div class="line"></div></div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="label">卜辞例句</div><div class="line"></div><div class="line"></div>
+      <div class="label" style="margin-top:1.5mm;">出处 / 编号</div><div class="line"></div>
+    </div>
+    <div class="bottom">
+      <div class="check-group">复习：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+      <div class="check-group">掌握：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+    </div>
+  </div>
+
+  <!-- 卡片 4 -->
+  <div class="card">
+    <div class="card-header">
+      <div>
+        <div class="today">今字</div>
+        <div class="reading">拼音 / 读音：____________</div>
+      </div>
+      <div class="meta">部首：________<br>六书：________</div>
+    </div>
+    <div class="main">
+      <div class="glyph-box">甲骨字形<br>（手写 / 贴图）</div>
+      <div class="right">
+        <div class="field"><div class="label">构形 / 来源</div><div class="line"></div><div class="line"></div></div>
+        <div class="field"><div class="label">本义 / 释义</div><div class="line"></div><div class="line"></div></div>
+      </div>
+    </div>
+    <div class="example">
+      <div class="label">卜辞例句</div><div class="line"></div><div class="line"></div>
+      <div class="label" style="margin-top:1.5mm;">出处 / 编号</div><div class="line"></div>
+    </div>
+    <div class="bottom">
+      <div class="check-group">复习：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+      <div class="check-group">掌握：<span class="circle"></span><span class="circle"></span><span class="circle"></span></div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
