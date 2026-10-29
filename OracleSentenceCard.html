@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<title>甲骨卜辞整句卡 · 空白版</title>
+<title>甲骨卜辞整句卡 · 竖版并排</title>
 <style>
   @page { size: A4 portrait; margin: 0; }
 
@@ -89,9 +89,16 @@
     border-bottom: 0.3mm solid #ddd5c8;
   }
 
-  /* ── 双钩 / 对临大框：纯空白 ── */
-  .box {
+  /* ── 双钩 / 对临：左右并排 ── */
+  .boxes-row {
     flex: 1;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3mm;
+  }
+
+  .box {
     min-height: 0;
     display: flex;
     flex-direction: column;
@@ -108,6 +115,7 @@
     padding: 1.5mm 2.5mm;
     border-bottom: 0.25mm dashed #ddd5c8;
     background: #fbf8f1;
+    text-align: center;
   }
 
   .box-body {
@@ -168,16 +176,16 @@
       <div class="wline"></div>
     </div>
 
-    <!-- 原拓双钩区 -->
-    <div class="box">
-      <div class="box-label">原拓双钩区</div>
-      <div class="box-body"></div>
-    </div>
-
-    <!-- 整句对临区 -->
-    <div class="box">
-      <div class="box-label">整句对临区</div>
-      <div class="box-body"></div>
+    <!-- 原拓双钩区 / 整句对临区：左右并排，竖长空白 -->
+    <div class="boxes-row">
+      <div class="box">
+        <div class="box-label">原拓双钩区</div>
+        <div class="box-body"></div>
+      </div>
+      <div class="box">
+        <div class="box-label">整句对临区</div>
+        <div class="box-body"></div>
+      </div>
     </div>
 
     <!-- 章法笔记（篆刻转化） -->
